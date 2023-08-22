@@ -7,8 +7,7 @@ export default async (req,res,next)=> {
             req.body,
             { new:true }
         )
-        .populate('admin_id')
-        .select('name photo mail')
+        .select('country photo city')
         if (updatedCity) {
             return res.status(200).json({
                 success: true,

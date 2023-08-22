@@ -15,7 +15,7 @@ import logger from "morgan"           // para registrar cada una de las peticion
 import indexRouter from "./routes/index.js" // este errutador va a llamar a todos los recursos
 import notFoundHandler from './middlewares/notFoundHandler.js'
 import errorHandler from './middlewares/errorHandler.js'
-
+import cors from "cors"
 let app = express();                       // ejecutando el modulo express: creo una app de backend ( servidor)
 
 // view engine setup
@@ -28,7 +28,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));   //obligo al servidor a registrar una peticion con el modulo de logger morgan
 app.use(express.json());  //obligo a leer al servidor a manipular/leer json
 app.use(express.urlencoded({ extended: false })); //obligo al servidor a leer params/queries
-
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public'))); //obligo al servidor a acceder los archivos estaticos de la carpeta public
 
 //ROUTER
