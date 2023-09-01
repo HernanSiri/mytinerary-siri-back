@@ -19,7 +19,7 @@ export default async (req,res,next)=> {
                 select: "city photo admin_id",
                 populate: {
                     path: "admin_id",
-                    select: "name"
+                    select: "name photo"
                 }
             })
         return res.status(200).json({
@@ -31,4 +31,3 @@ export default async (req,res,next)=> {
         next(error)
     }
 }
-
